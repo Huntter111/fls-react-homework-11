@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, resetErrorPostById } from '../redux/slices/postsReducer'
+import {
+	fetchPosts,
+	resetErrorPostById,
+	resetPostById,
+} from '../redux/slices/postsReducer'
 import Loader from '../components/Loader'
 import SearchPost from '../components/SearchPost'
 
@@ -11,6 +15,7 @@ const Posts = () => {
 
 	useEffect(() => {
 		dispatch(resetErrorPostById())
+		dispatch(resetPostById())
 		dispatch(fetchPosts())
 	}, [dispatch])
 
